@@ -32,4 +32,13 @@ impl<'a> Text<'a> {
     pub fn value<D: Display>(self, text: D) {
         self.0.end().write(text)
     }
+
+    /// Writes the text as seperate lines
+    pub fn values<D: Display>(self, text: impl Iterator<Item = D>) {
+        let mut tag = self.0.end();
+
+        for value in text {
+            tag.write(format_args!("<tspan>{}</tspan>", value));
+        }
+    }
 }
