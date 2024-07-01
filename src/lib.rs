@@ -11,11 +11,13 @@ use std::ops::{Deref, DerefMut};
 
 mod circle;
 mod open_tag;
+mod rect;
 mod style;
 mod tag;
 mod text;
 
 pub use circle::Circle;
+pub use rect::Rect;
 pub use style::Style;
 pub use tag::Tag;
 pub use text::Text;
