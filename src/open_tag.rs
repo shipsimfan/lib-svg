@@ -1,25 +1,22 @@
-use crate::{prefix, Tag};
+use crate::Tag;
 use std::fmt::{Display, Write};
 
 /// An SVG opening tag
 pub(crate) struct OpenTag<'a> {
     output: &'a mut String,
     name: &'a str,
-    depth: usize,
 
     print_self_close: bool,
 }
 
 impl<'a> OpenTag<'a> {
     /// Creates a new [`OpenTag`]
-    pub(crate) fn new(output: &'a mut String, name: &'a str, depth: usize) -> Self {
-        prefix(output, depth);
+    pub(crate) fn new(output: &'a mut String, name: &'a str) -> Self {
         write!(output, "<{}", name).unwrap();
 
         OpenTag {
             output,
             name,
-            depth,
             print_self_close: true,
         }
     }
@@ -32,7 +29,6 @@ impl<'a> OpenTag<'a> {
     /// Ends the opening tag allowing children to be added
     pub(crate) fn end(mut self) -> Tag<'a> {
         // Extract variables from this before dropping
-        let depth = self.depth;
         let name = self.name;
         let output = self.output as *mut String;
 
@@ -48,8 +44,8 @@ impl<'a> OpenTag<'a> {
         let output = unsafe { &mut *output };
 
         // Write the standard closing tag
-        output.push_str(">\n");
-        Tag::new(output, name, depth + 1)
+        output.push_str(">");
+        Tag::new(output, name)
     }
 }
 
@@ -59,6 +55,6 @@ impl<'a> Drop for OpenTag<'a> {
             return;
         }
 
-        self.output.push_str(" />\n")
+        self.output.push_str(" />")
     }
 }

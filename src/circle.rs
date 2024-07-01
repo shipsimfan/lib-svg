@@ -5,8 +5,8 @@ pub struct Circle<'a>(OpenTag<'a>);
 
 impl<'a> Circle<'a> {
     /// Creates a new circle builder
-    pub(crate) fn new(output: &'a mut String, depth: usize) -> Self {
-        Circle(OpenTag::new(output, "circle", depth))
+    pub(crate) fn new(output: &'a mut String) -> Self {
+        Circle(OpenTag::new(output, "circle"))
     }
 
     /// Sets the center x position
@@ -30,6 +30,12 @@ impl<'a> Circle<'a> {
     /// Sets the fill
     pub fn fill(mut self, fill: &str) -> Self {
         self.0.add_attribute("fill", fill);
+        self
+    }
+
+    /// Sets the class
+    pub fn class(mut self, class: &str) -> Self {
+        self.0.add_attribute("class", class);
         self
     }
 }
