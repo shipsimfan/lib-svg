@@ -1,4 +1,4 @@
-use lib_svg::SVGWriter;
+use svg::SVGWriter;
 
 const TARGET: &str = include_str!("./circle.svg");
 
