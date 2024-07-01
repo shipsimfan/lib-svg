@@ -1,0 +1,9 @@
+[package]
+name = "lib-svg"
+description = "SVG generation library"
+version = "0.1.0"
+authors = ["Lance Hart <me@lancehart.ca>"]
+edition = "2021"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/shipsimfan/lib-svg"
+publish = false
