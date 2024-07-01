@@ -13,9 +13,12 @@ mod circle;
 mod open_tag;
 mod style;
 mod tag;
+mod text;
 
 pub use circle::Circle;
+pub use style::Style;
 pub use tag::Tag;
+pub use text::Text;
 
 /// Utility for writing SVGs
 pub struct SVGWriter<'a>(Tag<'a>);
