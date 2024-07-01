@@ -10,6 +10,7 @@ use open_tag::OpenTag;
 use std::ops::{Deref, DerefMut};
 
 mod circle;
+mod image;
 mod open_tag;
 mod rect;
 mod style;
@@ -17,6 +18,7 @@ mod tag;
 mod text;
 
 pub use circle::Circle;
+pub use image::Image;
 pub use rect::Rect;
 pub use style::Style;
 pub use tag::Tag;

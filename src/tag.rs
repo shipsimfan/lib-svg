@@ -1,4 +1,4 @@
-use crate::{Circle, Rect, Style, Text};
+use crate::{Circle, Image, Rect, Style, Text};
 use std::fmt::{Display, Write};
 
 /// An SVG tag
@@ -21,6 +21,11 @@ impl<'a> Tag<'a> {
     /// Begins writing a rectangle
     pub fn rect(&mut self) -> Rect {
         Rect::new(self.output)
+    }
+
+    /// Begins writing an image
+    pub fn image(&mut self) -> Image {
+        Image::new(self.output)
     }
 
     /// Adds a block of CSS to style elements
