@@ -1,5 +1,5 @@
 [package]
-name = "lib-svg"
+name = "svg"
 description = "SVG generation library"
 version = "0.1.0"
 authors = ["Lance Hart <me@lancehart.ca>"]
