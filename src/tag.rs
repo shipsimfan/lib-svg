@@ -1,4 +1,4 @@
-use crate::{Circle, Image, Rect, Style, Text};
+use crate::{Circle, Image, Line, Rect, Style, Text};
 use std::fmt::{Display, Write};
 
 /// An SVG tag
@@ -36,6 +36,11 @@ impl<'a> Tag<'a> {
     /// Adds a block of text
     pub fn text(&mut self) -> Text {
         Text::new(self.output)
+    }
+
+    /// Adds a line
+    pub fn line(&mut self) -> Line {
+        Line::new(self.output)
     }
 
     /// Writes `d` directly to the output

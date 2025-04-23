@@ -11,6 +11,7 @@ use std::ops::{Deref, DerefMut};
 
 mod circle;
 mod image;
+mod line;
 mod open_tag;
 mod rect;
 mod style;
@@ -19,6 +20,7 @@ mod text;
 
 pub use circle::Circle;
 pub use image::Image;
+pub use line::Line;
 pub use rect::Rect;
 pub use style::Style;
 pub use tag::Tag;
